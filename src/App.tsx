@@ -22,16 +22,24 @@ function App() {
   RouteChangeTracker();
 
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+    }}>
       <Document file={harangPdf} onLoadSuccess={onDocumentLoadSuccess}>
         {Array.from(new Array(numPages), (_, index) => (
-          <Page
-            width={windowSize.width}
-            height={windowSize.height}
-            key={index}
-            pageNumber={index + 1}
-            renderAnnotationLayer={false}
-          />
+          <>
+            <Page
+              width={windowSize.width * 0.7}
+              height={windowSize.height * 0.7}
+              key={index}
+              pageNumber={index + 1}
+              renderAnnotationLayer={false}
+            />
+            <div style={{
+              height: '10px'
+            }}></div>
+          </>
         ))}
       </Document>
     </div>
