@@ -1,7 +1,7 @@
-import harangLogo from './assets/logo.svg';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { useState } from 'react';
 import useWindowSize from "./windowSize";
+import harangPdf from '@/assets/harang.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div>
-      <Document file="/src/assets/harang.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+      <Document file={harangPdf} onLoadSuccess={onDocumentLoadSuccess}>
         {Array.from(new Array(numPages), (_, index) => (
           <Page
             width={windowSize.width}
